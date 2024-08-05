@@ -33,14 +33,9 @@
 //     }),
 // });
 
-// export const persistor = persistStore(store);export const persistor = persistStore(store);
+import contactsReduser from "./contactsSlice";
+import filtersReduser from "./filtersSlice";
 import { configureStore } from "@reduxjs/toolkit";
-import contactsReducer from "../redux/contactsSlice"; // Исправлено: импортировать редуктор из правильного файла
-import { filtersReducer } from "../redux/filtersSlice";
-
 export const store = configureStore({
-  reducer: {
-    contacts: contactsReducer,
-    filters: filtersReducer,
-  },
+  reducer: { contacts: contactsReduser, filters: filtersReduser },
 });
