@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
-axios.defaults.baseURl = "https://66b0a7e16a693a95b539a34d.mockapi.io/contacts";
+axios.defaults.baseURL = "https://66b0a7e16a693a95b539a34d.mockapi.io/";
 
 // fetchContacts - одержання масиву контактів (метод GET) запитом. Базовий тип екшену це рядок "contacts/fetchAll".
 // addContact - додавання нового контакту (метод POST). Базовий тип екшену це рядок "contacts/addContact".
@@ -23,7 +22,7 @@ export const addContact = createAsyncThunk(
   "contacts/addContact",
   async (newContact, thunkAPI) => {
     try {
-      const response = await axios.post("/contacts, newContact");
+      const response = await axios.post("/contacts", newContact);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

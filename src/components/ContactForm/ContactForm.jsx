@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import css from "./ContactForm.module.css";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+
 import { addContact } from "../redux/contactsOps";
 
 export default function ContactForm() {
@@ -13,8 +13,6 @@ export default function ContactForm() {
     actions.resetForm();
   };
 
-  const loading = useSelector((state) => state.contacts.loading);
-  const isError = useSelector((state) => state.contacts.error);
   const formikInitialValue = { id: "", name: "", number: "" };
   const id = useId();
   const nameFieldId = id + "-name";
@@ -46,15 +44,14 @@ export default function ContactForm() {
             className={css.inputField}
             type="text"
             name="name"
-          />{" "}
-          {loading && <p>Loading..</p>}
-          {isError && (
-            <ErrorMessage
-              name="number"
-              component="span"
-              className={css.errorMessage}
-            />
-          )}
+          />
+
+          <ErrorMessage
+            name="number"
+            component="span"
+            className={css.errorMessage}
+          />
+
           <label htmlFor={phoneNumberFieldId} className={css.label}>
             Phone Number
           </label>
@@ -63,18 +60,17 @@ export default function ContactForm() {
             className={css.inputField}
             type="text"
             name="number"
-          />{" "}
-          {loading && <p>Loading..</p>}
-          {isError && (
-            <ErrorMessage
-              name="number"
-              component="span"
-              className={css.errorMessage}
-            />
-          )}
+          />
+
+          <ErrorMessage
+            name="number"
+            component="span"
+            className={css.errorMessage}
+          />
+
           <button
             type="submit"
-            className={isValid && dirty ? "" : css.isDisabled}
+            className={isValid && dirty ? css.activeButton : css.isDisabled}
           >
             Add contact
           </button>

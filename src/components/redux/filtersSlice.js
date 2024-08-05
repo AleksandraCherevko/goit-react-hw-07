@@ -6,10 +6,10 @@ const slice = createSlice({
   },
   reducers: {
     changeTextFilter(state, action) {
-      state.text = action.payload;
+      state.name = action.payload;
     },
   },
 });
-
+export const selectContactsFilter = (state) => state.filters.name;
 export const { changeTextFilter } = slice.actions;
 export default slice.reducer;
