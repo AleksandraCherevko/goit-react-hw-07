@@ -1,5 +1,5 @@
 import { useId } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field } from "formik";
 import css from "./ContactForm.module.css";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
@@ -46,12 +46,6 @@ export default function ContactForm() {
             name="name"
           />
 
-          <ErrorMessage
-            name="number"
-            component="span"
-            className={css.errorMessage}
-          />
-
           <label htmlFor={phoneNumberFieldId} className={css.label}>
             Phone Number
           </label>
@@ -60,12 +54,6 @@ export default function ContactForm() {
             className={css.inputField}
             type="text"
             name="number"
-          />
-
-          <ErrorMessage
-            name="number"
-            component="span"
-            className={css.errorMessage}
           />
 
           <button

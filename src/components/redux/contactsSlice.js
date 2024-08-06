@@ -54,3 +54,7 @@ export const selectError = (state) => state.contacts.error;
 
 export const selectContacts = (state) => state.contacts.items;
 export default slice.reducer;
+
+// export const selectSum = (state) => {
+//   return state.contacts.id + state.contacts.id;
+// };
